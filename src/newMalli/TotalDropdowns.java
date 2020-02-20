@@ -15,24 +15,25 @@ public class TotalDropdowns {
 		RemoteWebDriver driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
 		
 		driver.get("https://www.facebook.com");
-		List<WebElement> elements=driver.findElementsByXPath("//*");
+		List<WebElement> elements = driver.findElementsByXPath("//*");
 		int count=0;
 		int frame=0;
-		ListIterator ltr = elements.listIterator();
-		/*while (ltr.hasNext())
+		
+/*		ListIterator ltr = elements.listIterator();
+        while (ltr.hasNext())
 		{
-		WebElement ele=(WebElement) ltr.next();
-		String tagName=ele.getTagName();
+		WebElement ele = (WebElement)ltr.next();
+		String tagName = ele.getTagName();
 		if(tagName.equalsIgnoreCase("select"))
-				count++;*/
+		   count++;                                          */
 		
 		for(WebElement ele :elements)
 		{
 			if(ele.getTagName().equalsIgnoreCase("select"))
-		       count++;
+		        count++;
 			else
 				if(ele.getTagName().equalsIgnoreCase("a"))
 					frame++;

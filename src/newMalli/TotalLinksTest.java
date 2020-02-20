@@ -21,29 +21,31 @@ public class TotalLinksTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.google.com");
 		driver.findElementByName("q").sendKeys("Selenium by Ramesh Annapati" , Keys.ENTER);
-		//Actions actions = new Actions(driver);
-		//actions.click().perform();
+		
+//      Actions actions = new Actions(driver);
+//      actions.click().perform();
 		driver.findElementByXPath("//h3[contains(text(),'Selenium : Selenium WebDriver')]").click();
 		int enablelinks=0;
-		int disablelimks=0;
+		int disablelinks=0;
 		int totalLinks =0;
+		
 		List<WebElement> elements = driver.findElements(By.cssSelector("*"));
 		for(WebElement ele :elements){
 			String links = ele.getTagName();
 			if(links.equalsIgnoreCase("a")){
 				if(ele.isDisplayed() && ele.isEnabled()){				
-					//ele.click();
+//                  ele.click();
 					enablelinks++;
+		}
 				
-			}
 				else 
 				{
-					disablelimks++;
+					disablelinks++;
 		}
 	}
 }
-					System.out.println("working links are : "+enablelinks++);			
-					System.out.println("Not working links :" +disablelimks++);
+				System.out.println("working links are : "+enablelinks++);			
+				System.out.println("Not working links :" +disablelinks++);
 	
 	}
 }
